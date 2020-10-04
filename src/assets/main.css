@@ -1,0 +1,10 @@
+.mytd {
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 16pt;
+}
+
+.mytr {
+    border-bottom: 1pt solid black;
+}
+

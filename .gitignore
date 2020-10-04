@@ -1,0 +1,6 @@
+*.zip
+*.iml
+*.xml
+*.pyc
+*.swp
+src/secret.json
