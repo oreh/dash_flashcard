@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flashcard
+  labels:
+    app: flashcard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flashcard
+  template:
+    metadata:
+      labels:
+        app: flashcard
+    spec:
+      containers:
+      - name: flashcard
+        image: oreh/chinese-flashcard:0.1.0 
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8443
+        volumeMounts:
+        - name: gsa
+          mountPath: "/apps/secret.json"
+          readOnly: true
+          subPath: secret.json
+      volumes:
+      - name: gsa
+        secret:
+          secretName: google-service-account

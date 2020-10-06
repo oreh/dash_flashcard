@@ -41,3 +41,5 @@ RUN pip install networkx
 RUN pip install dash-auth==1.3.2
 
 CMD ["python", "-m", "app"]
+COPY src/assets apps/assets
+COPY src/app.py apps/app.py

@@ -8,6 +8,7 @@ from datetime import datetime as dt
 from google.oauth2 import service_account
 from apiclient import discovery
 
+import flask
 import dash
 import dash_auth
 from dash.dependencies import Input, Output, State
@@ -71,15 +72,19 @@ DF = sheet_load()
 
 
 # build the app
-app = dash.Dash(__name__)
+server = flask.Flask(__name__)
+server.config['APPLICATION_ROOT'] = '/flashcard'
+
+app = dash.Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    routes_pathname_prefix='/flashcard/',
+    server=server
+)
 
 app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
-
-app = dash.Dash(
-    external_stylesheets=[dbc.themes.BOOTSTRAP]
-)
 
 auth = dash_auth.BasicAuth(
     app,

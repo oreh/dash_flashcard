@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flashcard
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v2
+      kind: Mapping
+      name: quote-ui_mapping
+      prefix: /flashcard
+      service: flashcard:8443
+spec:
+  ports:
+  - name: ui
+    port: 8443
+    targetPort: 8443
+  selector:
+    app: flashcard
