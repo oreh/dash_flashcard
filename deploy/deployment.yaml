@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flashcard
-        image: oreh/chinese-flashcard:0.1.0 
+        image: oreh/chinese-flashcard:0.1.1 
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8443

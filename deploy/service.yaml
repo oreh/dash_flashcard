@@ -7,9 +7,10 @@ metadata:
       ---
       apiVersion: ambassador/v2
       kind: Mapping
-      name: quote-ui_mapping
-      prefix: /flashcard
+      name: flashcard_mapping
+      prefix: /flashcard/
       service: flashcard:8443
+      rewrite: ""
 spec:
   ports:
   - name: ui
